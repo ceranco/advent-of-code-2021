@@ -35,7 +35,7 @@ fn part_1() {
     let mut counter = 0;
 
     let mut previous_depth = None;
-    for line in INPUT.split_terminator('\n') {
+    for line in INPUT.lines() {
         let depth = line.parse::<i64>().expect("All lines must be valid i64");
         if depth > previous_depth.unwrap_or(depth) {
             counter += 1;
@@ -53,7 +53,7 @@ fn part_2() {
     let mut previous_sum = None;
 
     for depth in INPUT
-        .split_terminator('\n')
+        .lines()
         .map(|line| line.parse::<i64>().expect("All lines must be valid i64"))
     {
         window.push(depth);
